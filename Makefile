@@ -559,7 +559,7 @@ libvalidator:
 	out/Release/obj.target/ncval_base_verbose_x86_64/native_client/src/trusted/validator/x86/x86_insts_verbose.o
 
 install:
-	install -m 775 out/Release/libvalidator.so $(ZVM_SDK_ROOT)/libvalidator.so
+	install -m 775 out/Release/libvalidator.so $(ZVM_PREFIX)/libvalidator.so
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
 cmd_regen_makefile = ./native_client/build/gyp_nacl -fmake --ignore-environment "--toplevel-dir=." -Inative_client/build/configs.gypi -Inative_client/build/standalone_flags.gypi "--depth=." "-Dnacl_standalone=1" "-Dsysroot=native_client/toolchain/linux_arm-trusted" native_client/build/all.gyp
