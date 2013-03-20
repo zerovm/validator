@@ -1,3 +1,13 @@
+define PREFIX_ERR
+
+Please set up ZVM_PREFIX env variable to the desired installation path
+Example: export ZVM_PREFIX=/opt/zerovm
+
+endef
+ifndef ZVM_PREFIX
+$(error $(PREFIX_ERR))
+endif
+
 # We borrow heavily from the kernel build setup, though we are simpler since
 # we don't have Kconfig tweaking settings on us.
 
@@ -481,7 +491,7 @@ endif
 .PHONY: libvalidator install
 
 libvalidator:
-	$(CC) -shared -o out/Release/libvalidator.so \
+	$(CC) -shared -o out/Release/libvalidator.so -Wl,-soname=$(ZVM_PREFIX)/libvalidator.so \
 	out/Release/obj.target/platform/native_client/src/trusted/service_runtime/arch/x86_64/sel_ldr_x86_64.o \
 	out/Release/obj.target/platform/native_client/src/trusted/service_runtime/posix/sel_memory.o \
 	out/Release/obj.target/ncval_reg_sfi_x86_64/native_client/src/trusted/validator/x86/ncval_reg_sfi/address_sets.o \
