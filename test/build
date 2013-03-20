@@ -1,0 +1,5 @@
+#!/bin/sh
+#cc validate.o -L. -lvalidator -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now -pthread -lrt -lstdc++
+#cc validate.c -L. -lvalidator -pthread -lrt -lstdc++
+cc -O2 -s validate.c -lvalidator -lrt -lstdc++
+

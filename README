@@ -1,0 +1,9 @@
+nacl validator for linux x86-64 platform extracted from the native client project
+
+to make validator (release version) run
+  ./build
+
+to clean validator just delete out/ directory
+
+everything will be built in native_client/out, validator itsef is 
+out/Release/ncval_x86_64
