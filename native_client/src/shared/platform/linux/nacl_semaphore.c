@@ -39,6 +39,8 @@ NaClSyncStatus NaClSemTryWait(struct NaClSemaphore *sem) {
   return NACL_SYNC_BUSY;
 }
 
+/* d'b: disabled since debian lintian generated warning */
+#if 0
 NaClSyncStatus NaClSemPost(struct NaClSemaphore *sem) {
   if (0 == sem_post(&sem->sem_obj)) {
     return NACL_SYNC_OK;
@@ -49,6 +51,7 @@ NaClSyncStatus NaClSemPost(struct NaClSemaphore *sem) {
   }
   return NACL_SYNC_INTERNAL_ERROR;
 }
+#endif
 
 int32_t NaClSemGetValue(struct NaClSemaphore *sem) {
   int32_t value;
