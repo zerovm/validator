@@ -31,7 +31,7 @@ else
 endif
 
 # Specify BUILDTYPE=Release on the command line for a release build.
-BUILDTYPE ?= Debug
+BUILDTYPE ?= Release
 
 # Directory all our build output goes into.
 # Note that this must be two directories beneath src/ for unit tests to pass,
@@ -264,13 +264,17 @@ endef
 
 # Declare the "all" target first so it is the default,
 # even though we don't have the deps yet.
-.PHONY: all
+.PHONY: all clean
 all:
 
 # make looks for ways to re-generate included makefiles, but in our case, we
 # don't have a direct way. Explicitly telling make that it has nothing to do
 # for them makes it go faster.
 %.d: ;
+
+# d'b
+clean:
+	rm -rf out
 
 # Use FORCE_DO_CMD to force a target to run.  Should be coupled with
 # do_cmd.
@@ -488,9 +492,9 @@ ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
   include native_client/src/trusted/validator_x86/ncval_x86_64.target.mk
 endif
 
-.PHONY: libvalidator install
+.PHONY: validator install
 
-libvalidator:
+validator: ncdis_util_x86_64 ncval_x86_64
 	$(CC) -shared -o out/Release/libvalidator.so -Wl,-soname=$(ZVM_PREFIX)/libvalidator.so \
 	out/Release/obj.target/platform/native_client/src/trusted/service_runtime/arch/x86_64/sel_ldr_x86_64.o \
 	out/Release/obj.target/platform/native_client/src/trusted/service_runtime/posix/sel_memory.o \
