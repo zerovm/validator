@@ -1,4 +1,0 @@
-#!/bin/sh
-# to make debug build specify: BUILDTYPE=Debug
-make validator
-
