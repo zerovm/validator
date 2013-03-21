@@ -24,6 +24,8 @@ static int g_NaClClock_is_initialized = 0;
 int NaClClockInit(void) { g_NaClClock_is_initialized = 1; return 1; }
 void NaClClockFini(void) {}
 
+/* d'b: disabled to prevent lintian warning */
+#if 0
 int NaClClockGetRes(nacl_clockid_t            clk_id,
                     struct nacl_abi_timespec  *res) {
   int             rv = -NACL_ABI_EINVAL;
@@ -95,3 +97,4 @@ int NaClClockGetTime(nacl_clockid_t            clk_id,
   }
   return rv;
 }
+#endif

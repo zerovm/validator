@@ -524,9 +524,7 @@ libvalidator:
 	out/Release/obj.target/platform/native_client/src/shared/platform/nacl_log.o \
 	out/Release/obj.target/platform/native_client/src/shared/platform/posix/nacl_secure_random.o \
 	out/Release/obj.target/platform/native_client/src/shared/platform/nacl_secure_random_common.o \
-	out/Release/obj.target/platform/native_client/src/shared/platform/linux/nacl_semaphore.o \
 	out/Release/obj.target/platform/native_client/src/shared/platform/nacl_sync_checked.o \
-	out/Release/obj.target/platform/native_client/src/shared/platform/posix/nacl_threads.o \
 	out/Release/obj.target/platform/native_client/src/shared/platform/posix/nacl_thread_id.o \
 	out/Release/obj.target/platform/native_client/src/shared/platform/posix/nacl_time.o \
 	out/Release/obj.target/platform/native_client/src/shared/platform/posix/nacl_timestamp.o \

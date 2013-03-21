@@ -120,7 +120,6 @@ OBJS := \
 	$(obj).target/$(TARGET)/native_client/src/shared/platform/refcount_base.o \
 	$(obj).target/$(TARGET)/native_client/src/shared/platform/linux/nacl_clock.o \
 	$(obj).target/$(TARGET)/native_client/src/shared/platform/linux/nacl_host_dir.o \
-	$(obj).target/$(TARGET)/native_client/src/shared/platform/linux/nacl_semaphore.o \
 	$(obj).target/$(TARGET)/native_client/src/shared/platform/posix/aligned_malloc.o \
 	$(obj).target/$(TARGET)/native_client/src/shared/platform/posix/condition_variable.o \
 	$(obj).target/$(TARGET)/native_client/src/shared/platform/posix/lock.o \
@@ -130,7 +129,6 @@ OBJS := \
 	$(obj).target/$(TARGET)/native_client/src/shared/platform/posix/nacl_host_desc.o \
 	$(obj).target/$(TARGET)/native_client/src/shared/platform/posix/nacl_secure_random.o \
 	$(obj).target/$(TARGET)/native_client/src/shared/platform/posix/nacl_thread_id.o \
-	$(obj).target/$(TARGET)/native_client/src/shared/platform/posix/nacl_threads.o \
 	$(obj).target/$(TARGET)/native_client/src/shared/platform/posix/nacl_time.o \
 	$(obj).target/$(TARGET)/native_client/src/shared/platform/posix/nacl_timestamp.o
 
