@@ -569,6 +569,7 @@ validator: ncdis_util_x86_64 ncval_x86_64
 	out/Release/obj.target/platform/native_client/src/shared/platform/refcount_base.o \
 	out/Release/obj.target/ncval_base_x86_64/native_client/src/trusted/validator/x86/x86_insts.o \
 	out/Release/obj.target/ncval_base_verbose_x86_64/native_client/src/trusted/validator/x86/x86_insts_verbose.o
+	@mv $(obj).target/../ncval_x86_64 $(obj).target/../valz
 
 install:
 	install -m 775 out/Release/libvalidator.so $(ZVM_PREFIX)/libvalidator.so
