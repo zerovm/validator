@@ -1,2 +1,3 @@
 #!/bin/sh
-make ncdis_util_x86_64 ncval_x86_64 BUILDTYPE=Release
+make ncdis_util_x86_64 ncval_x86_64 libvalidator BUILDTYPE=Release
+
