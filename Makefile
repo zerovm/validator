@@ -573,6 +573,7 @@ validator: ncdis_util_x86_64 ncval_x86_64
 
 install:
 	install -m 775 $(obj).target/../libvalidator.so $(ZVM_PREFIX)/libvalidator.so
+	install -m 775 $(obj).target/../valz $(ZVM_PREFIX)/valz
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
 cmd_regen_makefile = ./native_client/build/gyp_nacl -fmake --ignore-environment "--toplevel-dir=." -Inative_client/build/configs.gypi -Inative_client/build/standalone_flags.gypi "--depth=." "-Dnacl_standalone=1" "-Dsysroot=native_client/toolchain/linux_arm-trusted" native_client/build/all.gyp

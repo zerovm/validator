@@ -588,7 +588,7 @@ Bool NaClRunValidatorBytes(int argc,
 
 
 static const char usage_str[] =
-      "usage: ncval [options] file\n"
+      "usage: valz [options] file\n" /* d'b */
       "\n"
       "\tValidates an x86-%d nexe file.\n"
       "\n"
