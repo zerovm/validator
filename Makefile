@@ -491,10 +491,15 @@ ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
                  $(join ^,native_client/src/trusted/validator_x86/ncval_x86_64.target.mk)))),)
   include native_client/src/trusted/validator_x86/ncval_x86_64.target.mk
 endif
+ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
+    $(findstring $(join ^,$(prefix)),\
+                 $(join ^,native_client/src/trusted/validator_x86/valzo.target.mk)))),)
+  include native_client/src/trusted/validator_x86/valzo.target.mk
+endif
 
 .PHONY: validator install
 
-validator: ncdis_util_x86_64 ncval_x86_64
+validator: ncdis_util_x86_64 ncval_x86_64 valzo
 	$(CC) -shared -o $(obj).target/../libvalidator.so -Wl,-soname=$(ZVM_PREFIX)/libvalidator.so \
 	$(obj).target/platform/native_client/src/trusted/service_runtime/arch/x86_64/sel_ldr_x86_64.o \
 	$(obj).target/platform/native_client/src/trusted/service_runtime/posix/sel_memory.o \
@@ -570,10 +575,11 @@ validator: ncdis_util_x86_64 ncval_x86_64
 	$(obj).target/ncval_base_x86_64/native_client/src/trusted/validator/x86/x86_insts.o \
 	$(obj).target/ncval_base_verbose_x86_64/native_client/src/trusted/validator/x86/x86_insts_verbose.o
 	@mv $(obj).target/../ncval_x86_64 $(obj).target/../valz
-
+	
 install:
 	install -m 775 $(obj).target/../libvalidator.so $(ZVM_PREFIX)/libvalidator.so
 	install -m 775 $(obj).target/../valz $(ZVM_PREFIX)/valz
+	install -m 775 $(obj).target/../valzo $(ZVM_PREFIX)/valzo
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
 cmd_regen_makefile = ./native_client/build/gyp_nacl -fmake --ignore-environment "--toplevel-dir=." -Inative_client/build/configs.gypi -Inative_client/build/standalone_flags.gypi "--depth=." "-Dnacl_standalone=1" "-Dsysroot=native_client/toolchain/linux_arm-trusted" native_client/build/all.gyp

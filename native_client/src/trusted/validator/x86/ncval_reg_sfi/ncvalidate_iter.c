@@ -90,6 +90,14 @@ void NaClConditionAppend(char* condition,
 /* Define the stop instruction. */
 const uint8_t kNaClFullStop = 0xf4;   /* x86 HALT opcode */
 
+/*
+ * d'b: quick and dirty hack just to see that a zerovm version of ncval_stubout will work
+ * todo(d'b): should be replaced with the more neat version
+ */
+const uint8_t kNaClNOP = 0x90;   /* x86 NOP opcode */
+const char kNaClRDTSC[] = {0x0f, 0x31}; /* x86 RDTSC opcode */
+const uint16_t kNaClRDTSC_SIZE = sizeof kNaClRDTSC; /* x86 RDTSC opcode size */
+
 void NaClValidatorFlagsSetTraceVerbose(void) {
   NACL_FLAGS_validator_trace_instructions = TRUE;
   NACL_FLAGS_validator_trace_inst_internals = TRUE;
@@ -254,7 +262,12 @@ static INLINE int NaClRecordIfValidatorError(NaClValidatorState *vstate,
  */
 void NCStubOutMem(NaClValidatorState *state, void *ptr, size_t num) {
   state->did_stub_out = TRUE;
-  memset(ptr, kNaClFullStop, num);
+
+  /* d'b: only RDTSC should be replaced with NOPs */
+  if(num == kNaClRDTSC_SIZE && !memcmp(ptr, kNaClRDTSC, num))
+    memset(ptr, kNaClNOP, num);
+  else
+    memset(ptr, kNaClFullStop, num);
 }
 
 /* Does stub out of instruction in validator state. */
