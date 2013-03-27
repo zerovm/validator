@@ -1,9 +1,16 @@
-nacl validator for linux x86-64 platform extracted from the native client project
+validator for linux x86-64 platform extracted from the native client project
+and adopted. rdtsc instruction moved to "blacklist". unlike other blacklisted
+instructions rdtsc being replaced with nops (not halts)
 
 to make validator (release version) run
-  ./build
+  make validator
 
-to clean validator just delete out/ directory
+to clean validator run
+  make clean
 
-everything will be built in native_client/out, validator itsef is 
-out/Release/ncval_x86_64
+to put validator shared library, standalone validator and stubout utility to
+toolchain folder run
+  make install
+
+altogether can be done with
+  make clean validator install

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# the way to build validator with dynamic linking to libvalidator.so
+# (resulting executable will have much less size)
+cc -ovalz -s -O2 ncval.c -I/home/bortoq/git/validator/ \
+-DNACL_LINUX=1 \
+-D_BSD_SOURCE=1 \
+-D_POSIX_C_SOURCE=199506 \
+-D_XOPEN_SOURCE=600 \
+-D_GNU_SOURCE=1 \
+-D__STDC_LIMIT_MACROS=1 \
+-D__STDC_FORMAT_MACROS \
+-DNACL_TARGET_SUBARCH=64 \
+-DNACL_TARGET_ARCH=x86 \
+-DNACL_BUILD_SUBARCH=64 \
+-DNACL_BUILD_ARCH=x86 \
+-DNACL_TRUSTED_BUT_NOT_TCB \
+/home/bortoq/zerovm/libvalidator.so -lstdc++ -lpthread
