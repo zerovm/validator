@@ -1,0 +1,27 @@
+libvalidator0 (0.9-1) precise; urgency=low
+
+  [ Constantine Peresypkin ]
+  * install added
+  * ZVM_PREFIX added
+  * ZVM_PREFIX check added
+
+  [ bortoq ]
+  * NaClSemPost disabled to prevent lintian warning
+  * #3
+  * #4
+  * #5 done
+  * #1 #2 done
+  * #6 fixed. build script removed
+  * #7 done
+  * #8 done. issuing "make install" will also append valzo (stubout) to install directory
+  * #9 done also dynamically linked validator and stubout utility added (see test/dyn_linked)
+
+  [ Constantine Peresypkin ]
+
+ -- Constantine Peresypkin (pkit) <constantine@litestack.com>  Wed, 03 Apr 2013 22:17:35 -0500
+
+libvalidator0 (0.8) precise; urgency=low
+
+  * Initial release. 
+
+ -- Constantine Peresypkin (pkit) <constantine@litestack.com>  Wed, 03 Apr 2013 22:08:43 -0500

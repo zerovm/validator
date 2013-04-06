@@ -1,13 +1,3 @@
-define PREFIX_ERR
-
-Please set up ZVM_PREFIX env variable to the desired installation path
-Example: export ZVM_PREFIX=/opt/zerovm
-
-endef
-ifndef ZVM_PREFIX
-$(error $(PREFIX_ERR))
-endif
-
 # We borrow heavily from the kernel build setup, though we are simpler since
 # we don't have Kconfig tweaking settings on us.
 
@@ -15,6 +5,8 @@ endif
 # We instead explicitly write all the rules we care about.
 # It's even quicker (saves ~200ms) to pass -r on the command line.
 MAKEFLAGS=-r
+
+.DEFAULT_GOAL := validator
 
 # The source directory tree.
 srcdir := .
@@ -500,7 +492,7 @@ endif
 .PHONY: validator install
 
 validator: ncdis_util_x86_64 ncval_x86_64 valzo
-	$(CC) -shared -o $(obj).target/../libvalidator.so -Wl,-soname=$(ZVM_PREFIX)/libvalidator.so \
+	$(CC) -shared -o $(obj).target/../libvalidator.so.0.9.0 -Wl,-soname,libvalidator.so.0 \
 	$(obj).target/platform/native_client/src/trusted/service_runtime/arch/x86_64/sel_ldr_x86_64.o \
 	$(obj).target/platform/native_client/src/trusted/service_runtime/posix/sel_memory.o \
 	$(obj).target/ncval_reg_sfi_x86_64/native_client/src/trusted/validator/x86/ncval_reg_sfi/address_sets.o \
@@ -577,9 +569,9 @@ validator: ncdis_util_x86_64 ncval_x86_64 valzo
 	@mv $(obj).target/../ncval_x86_64 $(obj).target/../valz
 	
 install:
-	install -m 775 $(obj).target/../libvalidator.so $(ZVM_PREFIX)/libvalidator.so
-	install -m 775 $(obj).target/../valz $(ZVM_PREFIX)/valz
-	install -m 775 $(obj).target/../valzo $(ZVM_PREFIX)/valzo
+	install -D -m 775 $(obj).target/../libvalidator.so.0.9.0 $(DESTDIR)/usr/lib/libvalidator.so.0.9.0
+	install -D -m 775 $(obj).target/../valz $(DESTDIR)/usr/bin/valz
+	install -D -m 775 $(obj).target/../valzo $(DESTDIR)/usr/bin/valzo
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
 cmd_regen_makefile = ./native_client/build/gyp_nacl -fmake --ignore-environment "--toplevel-dir=." -Inative_client/build/configs.gypi -Inative_client/build/standalone_flags.gypi "--depth=." "-Dnacl_standalone=1" "-Dsysroot=native_client/toolchain/linux_arm-trusted" native_client/build/all.gyp
