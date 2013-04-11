@@ -572,6 +572,7 @@ install:
 	install -D -m 775 $(obj).target/../libvalidator.so.0.9.0 $(DESTDIR)/usr/lib/libvalidator.so.0.9.0
 	install -D -m 775 $(obj).target/../valz $(DESTDIR)/usr/bin/valz
 	install -D -m 775 $(obj).target/../valzo $(DESTDIR)/usr/bin/valzo
+	cd $(DESTDIR)/usr/lib && ln -s libvalidator.so.0.9.0 libvalidator.so || true
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
 cmd_regen_makefile = ./native_client/build/gyp_nacl -fmake --ignore-environment "--toplevel-dir=." -Inative_client/build/configs.gypi -Inative_client/build/standalone_flags.gypi "--depth=." "-Dnacl_standalone=1" "-Dsysroot=native_client/toolchain/linux_arm-trusted" native_client/build/all.gyp
