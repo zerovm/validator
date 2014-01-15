@@ -1,0 +1,15 @@
+Source: libvalidator0
+Section: otherosfs
+Priority: extra
+Maintainer: Lars Butler <Lars.Butler@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://zerovm.org
+
+Package: libvalidator0
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: ZeroVM validator binaries
+ ZeroVM is an open-source lightweight virtualization platform
+ based on Google Native Client project
+
