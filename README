@@ -36,8 +36,7 @@ generated using the following steps.
    it to the parent directory (in this example, $HOME), then gzip it:
 
     $ cd $HOME/validator
-    $ git archive HEAD --output ../libvalidator0_0.9.orig.tar
-    $ gzip ../libvalidator0_0.9.orig.tar
+    $ git archive HEAD --output ../libvalidator0_0.9.orig.tar.gz
 
 4. Compile and build the package:
 
