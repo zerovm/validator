@@ -1,4 +1,4 @@
-Source: libvalidator0
+Source: zvm-validator
 Section: otherosfs
 Priority: extra
 Maintainer: Lars Butler <Lars.Butler@gmail.com>
@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.3
 Homepage: http://zerovm.org
 
-Package: libvalidator0
+Package: zvm-validator
 Architecture: amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: ZeroVM validator binaries
