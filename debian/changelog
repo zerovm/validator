@@ -1,3 +1,9 @@
+zvm-validator (0.9-2) precise; urgency=low
+
+  * Rename package to zvm-validator from libvalidator0
+
+ -- Lars Butler <lars.butler@gmail.com>  Wed, 29 Jan 2014 11:56:49 +0000
+
 libvalidator0 (0.9-2) precise; urgency=low
 
   [ Constantine Peresypkin ]
