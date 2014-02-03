@@ -41,6 +41,11 @@ abs_obj := $(abspath $(obj))
 all_deps :=
 
 
+PREFIX = /usr/local
+prefix = $(PREFIX)
+exec_prefix = $(prefix)
+bindir = $(exec_prefix)/bin
+libdir = $(exec_prefix)/lib
 
 # C++ apps need to be linked with g++.
 #
@@ -569,11 +574,11 @@ validator: ncdis_util_x86_64 ncval_x86_64 valzo
 	@mv $(obj).target/../ncval_x86_64 $(obj).target/../valz
 	
 install:
-	install -D -m 775 $(obj).target/../libvalidator.so.0.9.0 $(DESTDIR)/usr/lib/libvalidator.so.0.9.0
-	install -D -m 775 $(obj).target/../valz $(DESTDIR)/usr/bin/valz
-	install -D -m 775 $(obj).target/../valzo $(DESTDIR)/usr/bin/valzo
-	cd $(DESTDIR)/usr/lib && ln -s libvalidator.so.0.9.0 libvalidator.so || true 
-	cd $(DESTDIR)/usr/lib && ln -s libvalidator.so.0.9.0 libvalidator.so.0 || true
+	install -D -m 775 $(obj).target/../libvalidator.so.0.9.0 $(DESTDIR)$(libdir)/libvalidator.so.0.9.0
+	install -D -m 775 $(obj).target/../valz $(DESTDIR)$(bindir)/valz
+	install -D -m 775 $(obj).target/../valzo $(DESTDIR)$(bindir)/valzo
+	cd $(DESTDIR)$(libdir) && ln -s libvalidator.so.0.9.0 libvalidator.so || true
+	cd $(DESTDIR)$(libdir) && ln -s libvalidator.so.0.9.0 libvalidator.so.0 || true
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
 cmd_regen_makefile = ./native_client/build/gyp_nacl -fmake --ignore-environment "--toplevel-dir=." -Inative_client/build/configs.gypi -Inative_client/build/standalone_flags.gypi "--depth=." "-Dnacl_standalone=1" "-Dsysroot=native_client/toolchain/linux_arm-trusted" native_client/build/all.gyp
