@@ -10,7 +10,6 @@ install-sh
 ltmain.sh
 missing
 Makefile.in
-m4
 compile
 config.h*
 config.log
