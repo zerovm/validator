@@ -1,3 +1,5 @@
+AUTOMAKE_OPTIONS=subdir-objects
+
 noinst_LTLIBRARIES = libutil.la
 libutil_la_SOURCES = flags.c formatting.c debugging.h flags.h formatting.h types.h
 

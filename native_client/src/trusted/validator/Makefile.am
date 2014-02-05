@@ -1,4 +1,4 @@
-AUTOMAKE_OPTIONS = subdir-objects
+AUTOMAKE_OPTIONS=subdir-objects
 
 lib_LTLIBRARIES = libvalidator.la
 

@@ -1,3 +1,5 @@
+AUTOMAKE_OPTIONS=subdir-objects
+
 noinst_LTLIBRARIES = libgio.la
 libgio_la_SOURCES = gio.c gio_mem.c gio_mem_snapshot.c gio_pio.c gprintf.c gio.h
 

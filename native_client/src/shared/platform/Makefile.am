@@ -1,3 +1,5 @@
+AUTOMAKE_OPTIONS=subdir-objects
+
 noinst_LTLIBRARIES = libplatform.la
 
 libplatform_la_SOURCES = \

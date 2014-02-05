@@ -1,3 +1,5 @@
+AUTOMAKE_OPTIONS=subdir-objects
+
 SUBDIRS = cpu_features service_runtime validator_x86 validator
 
 EXTRA_DIST = desc/nacl_desc/base.h \

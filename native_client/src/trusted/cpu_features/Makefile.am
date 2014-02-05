@@ -1,3 +1,5 @@
+AUTOMAKE_OPTIONS=subdir-objects
+
 noinst_LTLIBRARIES = libcpufeatures.la
 
 libcpufeatures_la_SOURCES = \

@@ -1,3 +1,5 @@
+AUTOMAKE_OPTIONS=subdir-objects
+
 noinst_LTLIBRARIES = libarchvalidator.la
 
 libarchvalidator_la_SOURCES = \
