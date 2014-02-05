@@ -1,5 +1,5 @@
-noinst_LIBRARIES = libgio.a
-libgio_a_SOURCES = gio.c gio_mem.c gio_mem_snapshot.c gio_pio.c gprintf.c gio.h
+noinst_LTLIBRARIES = libgio.la
+libgio_la_SOURCES = gio.c gio_mem.c gio_mem_snapshot.c gio_pio.c gprintf.c gio.h
 
 XX_CPPFLAGS = $(AM_CPPFLAGS) \
 	   '-DNACL_LINUX=1' \
@@ -38,5 +38,5 @@ XX_CFLAGS = $(AM_CFLAGS) \
 	 -fdata-sections \
 	 -ffunction-sections
 
-libgio_a_CPPFLAGS = $(XX_CPPFLAGS)
-libgio_a_CFLAGS = $(XX_CFLAGS)
+libgio_la_CPPFLAGS = $(XX_CPPFLAGS)
+libgio_la_CFLAGS = $(XX_CFLAGS)

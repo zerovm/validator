@@ -1,11 +1,20 @@
-noinst_LTLIBRARIES = libcpufeatures.la
+noinst_LTLIBRARIES = libarchvalidator.la
 
-libcpufeatures_la_SOURCES = \
-	cpu_features.h \
-	arch/x86/cpu_x86.h \
-	arch/x86/cpu_x86.c \
-	arch/x86/cpu_x86_features.h \
-	arch/x86/cpu_xgetbv.S
+libarchvalidator_la_SOURCES = \
+	nccopycode.c \
+	nccopycode_stores.S \
+	ncdis_segments.c \
+	ncenuminsts_x86_64.c \
+	nc_read_segment.c \
+	ncdis_segments.h \
+	ncenuminsts.h \
+	nc_read_segment.h \
+	ncdis_decode_tables.h
+
+EXTRA_DIST = \
+	ncstubout.c \
+	ncval.c \
+	ncdis_decode_tables.c
 
 XX_CPPFLAGS = $(AM_CPPFLAGS) \
 	   '-DNACL_LINUX=1' \
@@ -22,6 +31,7 @@ XX_CPPFLAGS = $(AM_CPPFLAGS) \
 	   '-DNACL_TARGET_ARCH=x86' \
 	   '-DNACL_BUILD_SUBARCH=64' \
 	   '-DNACL_BUILD_ARCH=x86' \
+	   '-DNACL_TRUSTED_BUT_NOT_TCB' \
 	   '-DNDEBUG'
 
 XX_CFLAGS = $(AM_CFLAGS) \
@@ -30,10 +40,7 @@ XX_CFLAGS = $(AM_CFLAGS) \
 	 -fno-exceptions \
 	 -Wall \
 	 -fPIC \
-	 -Wextra \
 	 -Wno-long-long \
-	 -Wswitch-enum \
-	 -Wsign-compare \
 	 -Wundef \
 	 -fdiagnostics-show-option \
 	 -m64 \
@@ -42,7 +49,10 @@ XX_CFLAGS = $(AM_CFLAGS) \
 	 -O2 \
 	 -fno-ident \
 	 -fdata-sections \
-	 -ffunction-sections
+	 -ffunction-sections \
+	 -Wstrict-prototypes \
+	 -MMD \
+	 -MF
 
-libcpufeatures_la_CPPFLAGS = $(XX_CPPFLAGS)
-libcpufeatures_la_CFLAGS = $(XX_CFLAGS)
+libarchvalidator_la_CPPFLAGS = $(XX_CPPFLAGS)
+libarchvalidator_la_CFLAGS = $(XX_CFLAGS)

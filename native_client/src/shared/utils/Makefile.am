@@ -1,5 +1,5 @@
-noinst_LIBRARIES = libutil.a
-libutil_a_SOURCES = flags.c formatting.c debugging.h flags.h formatting.h types.h
+noinst_LTLIBRARIES = libutil.la
+libutil_la_SOURCES = flags.c formatting.c debugging.h flags.h formatting.h types.h
 
 XX_CPPFLAGS = $(AM_CPPFLAGS) \
 	   '-DNACL_LINUX=1' \
@@ -38,5 +38,5 @@ XX_CFLAGS = $(AM_CFLAGS) \
 	 -fdata-sections \
 	 -ffunction-sections
 
-libutil_a_CPPFLAGS = $(XX_CPPFLAGS)
-libutil_a_CFLAGS = $(XX_CFLAGS)
+libutil_la_CPPFLAGS = $(XX_CPPFLAGS)
+libutil_la_CFLAGS = $(XX_CFLAGS)

@@ -1,6 +1,6 @@
-noinst_LIBRARIES = libplatform.a
+noinst_LTLIBRARIES = libplatform.la
 
-libplatform_a_SOURCES = \
+libplatform_la_SOURCES = \
 	nacl_interruptible_condvar.c \
 	nacl_interruptible_mutex.c \
 	platform_init.c \
@@ -89,5 +89,5 @@ XX_CFLAGS = $(AM_CFLAGS) \
 	 -fdata-sections \
 	 -ffunction-sections
 
-libplatform_a_CPPFLAGS = $(XX_CPPFLAGS)
-libplatform_a_CFLAGS = $(XX_CFLAGS)
+libplatform_la_CPPFLAGS = $(XX_CPPFLAGS)
+libplatform_la_CFLAGS = $(XX_CFLAGS)

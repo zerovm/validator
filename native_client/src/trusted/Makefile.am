@@ -1,5 +1,5 @@
-SUBDIRS = cpu_features service_runtime
-#service_runtime validator validator_x86
+SUBDIRS = cpu_features service_runtime validator_x86 validator
+
 EXTRA_DIST = desc/nacl_desc/base.h \
 	interval_multiset/nacl_interval_multiset.h \
 	interval_multiset/nacl_interval_range_tree.h \

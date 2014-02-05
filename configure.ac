@@ -16,18 +16,18 @@ AM_PROG_CC_C_O
 
 
 AC_ARG_ENABLE(debug, [    --enable-debug                Enable debugging switches],
-		       [ case "${enableval}" in
-			 yes) CFLAGS="-O0 -g -Wall -fstack-protector-all";;
-			 no) CFLAGS="-O2 -g -Wall -DNDEBUG";;
-			 *) AC_MSG_ERROR(bad value ${enableval} for --enable-debug);;
-		       esac ])
+                       [ case "${enableval}" in
+                         yes) CFLAGS="-O0 -g -Wall -fstack-protector-all";;
+                         no) CFLAGS="-O2 -g -Wall -DNDEBUG";;
+                         *) AC_MSG_ERROR(bad value ${enableval} for --enable-debug);;
+                       esac ])
 
 AC_ARG_ENABLE(efence, [    --enable-efence               Enable ElectricFence],
-		       [ case "${enableval}" in
-			 yes) LIBS="${LIBS} -lefence";;
-			 no) ;;
-			 *) AC_MSG_ERROR(bad value ${enableval} for --enable-debug);;
-		       esac ])
+                       [ case "${enableval}" in
+                         yes) LIBS="${LIBS} -lefence";;
+                         no) ;;
+                         *) AC_MSG_ERROR(bad value ${enableval} for --enable-debug);;
+                       esac ])
 
 
 case $host in
@@ -58,12 +58,15 @@ AC_CHECK_FUNCS([strcasecmp strspn strstr])
 
 # Write config.status and the Makefile
 AC_OUTPUT(Makefile native_client/src/Makefile \
-		   native_client/src/shared/Makefile \
-		   native_client/src/shared/utils/Makefile \
-		   native_client/src/shared/gio/Makefile \
-		   native_client/src/shared/platform/Makefile \
-		   native_client/src/third_party/Makefile \
-		   native_client/src/include/Makefile \
-		   native_client/src/trusted/Makefile \
-		   native_client/src/trusted/cpu_features/Makefile
-		   native_client/src/trusted/service_runtime/Makefile)
+                   native_client/src/shared/Makefile \
+                   native_client/src/shared/utils/Makefile \
+                   native_client/src/shared/gio/Makefile \
+                   native_client/src/shared/platform/Makefile \
+                   native_client/src/third_party/Makefile \
+                   native_client/src/include/Makefile \
+                   native_client/src/trusted/Makefile \
+                   native_client/src/trusted/cpu_features/Makefile
+                   native_client/src/trusted/service_runtime/Makefile
+                   native_client/src/trusted/validator_x86/Makefile
+                   native_client/src/trusted/validator/Makefile
+                   test/Makefile)

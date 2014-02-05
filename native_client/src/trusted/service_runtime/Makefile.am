@@ -1,6 +1,6 @@
-noinst_LIBRARIES = libserviceruntime.a
+noinst_LTLIBRARIES = libserviceruntime.la
 
-libserviceruntime_a_SOURCES = \
+libserviceruntime_la_SOURCES = \
 	nacl_app_thread.h \
 	nacl_signal.h \
 	nacl_resource.h \
@@ -75,5 +75,5 @@ XX_CFLAGS = $(AM_CFLAGS) \
 	 -fdata-sections \
 	 -ffunction-sections
 
-libserviceruntime_a_CPPFLAGS = $(XX_CPPFLAGS)
-libserviceruntime_a_CFLAGS = $(XX_CFLAGS)
+libserviceruntime_la_CPPFLAGS = $(XX_CPPFLAGS)
+libserviceruntime_la_CFLAGS = $(XX_CFLAGS)
