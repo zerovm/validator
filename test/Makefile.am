@@ -1,3 +1,5 @@
+AUTOMAKE_OPTIONS=subdir-objects
+
 bin_PROGRAMS = valz valzo
 noinst_PROGRAMS = validator
 
