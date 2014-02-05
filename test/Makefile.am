@@ -1,4 +1,5 @@
-bin_PROGRAMS = validator valz valzo
+bin_PROGRAMS = valz valzo
+noinst_PROGRAMS = validator
 
 validator_SOURCES = validate.c
 valz_SOURCES = dyn_linked/ncval.c
