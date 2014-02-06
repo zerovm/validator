@@ -96,6 +96,15 @@ libvalidator_la_SOURCES = \
 	validation_cache.h \
 	ncvalidate.h
 
+EXTRA_DIST = x86/ncval_reg_sfi/address_sets_inl.c \
+	x86/ncinstbuffer_inl.c \
+	x86/x86_insts_inl.c \
+	x86/ncinstbuffer_inl.c \
+	x86/decoder/nc_inst_iter_inl.c \
+	x86/decoder/ncopcode_desc_inl.c \
+	x86/decoder/ncop_exps_inl.c \
+	x86/decoder/nc_inst_state_statics.c
+
 libvalidator_la_LIBADD = \
 	../../shared/platform/libplatform.la \
 	../../shared/utils/libutil.la \
