@@ -5,6 +5,9 @@
 
 project=home:mgeisler
 package=zvm-validator
+commit=$(git rev-parse --short HEAD)
+timestamp=$(date +%Y%m%d%H%M)
+build=$timestamp.$commit
 
 if [ ! -d $project/$package ]; then
     osc checkout $project $package
@@ -12,4 +15,8 @@ fi
 osc update $project/$package
 
 git archive HEAD -o $project/$package/$package.tar.gz
+
+sed "s/@BUILD@/$build/" < contrib/$package.spec.tmpl \
+    > $project/$package/$package.spec
+
 osc commit --skip-validation -m "Git commit $commit" $project
