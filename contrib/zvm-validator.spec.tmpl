@@ -1,0 +1,37 @@
+Name: zvm-validator
+Version: 0.9
+Release: 1%{?dist}
+Summary: ZeroVM validator
+Group: Development/Tools
+License: Apache-2.0
+Source: %{name}-%{version}.tar.gz
+
+%description
+ZeroVM is an open-source lightweight virtualization platform
+based on Google Native Client project.
+
+This package contains a validator for NaCl bitcode.
+
+%prep
+%setup -c
+
+%build
+make validator
+
+%install
+make install PREFIX=%{_prefix} DESTDIR=%{buildroot}
+
+%clean
+
+%files
+/usr/bin/valz
+/usr/bin/valzo
+/usr/lib/libvalidator.so*
+
+%doc README
+
+%changelog
+-------------------------------------------------------------------
+Wed Feb 19 10:49:58 CET 2014 - martin@geisler.net
+
+- Initial release.
