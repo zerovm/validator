@@ -24,9 +24,9 @@ make install PREFIX=%{_prefix} DESTDIR=%{buildroot}
 %clean
 
 %files
-/usr/bin/valz
-/usr/bin/valzo
-/usr/lib/libvalidator.so*
+%{_bindir}/valz
+%{_bindir}/valzo
+%{_libdir}/libvalidator.so*
 
 %doc README
 
