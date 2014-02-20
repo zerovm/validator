@@ -24,6 +24,12 @@ make install PREFIX=%{_prefix} DESTDIR=%{buildroot}
 
 %clean
 
+%post
+/sbin/ldconfig
+
+%postun
+/sbin/ldconfig
+
 %files
 %{_bindir}/valz
 %{_bindir}/valzo
