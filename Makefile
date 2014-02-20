@@ -45,7 +45,13 @@ PREFIX = /usr/local
 prefix = $(PREFIX)
 exec_prefix = $(prefix)
 bindir = $(exec_prefix)/bin
+
+MACHINE := $(shell uname -m)
+ifeq ($(MACHINE), x86_64)
+libdir = $(exec_prefix)/lib64
+else
 libdir = $(exec_prefix)/lib
+endif
 
 # C++ apps need to be linked with g++.
 #
