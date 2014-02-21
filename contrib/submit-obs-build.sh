@@ -6,7 +6,7 @@
 project=home:mgeisler
 package=zvm-validator
 commit=$(git rev-parse --short HEAD)
-timestamp=$(date +%Y%m%d%H%M)
+timestamp=$(date -u +%Y%m%d%H%M)
 build=$timestamp.$commit
 
 if [ ! -d $project/$package ]; then
