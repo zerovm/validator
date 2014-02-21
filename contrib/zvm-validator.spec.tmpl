@@ -20,6 +20,15 @@ Group: Development/Libraries
 %description -n libvalidator0
 The libvalidator library.
 
+%package -n libvalidator0-devel
+Summary:        The validator runtime library development files
+Group:          Development/Libraries/C and C++
+Requires:       libvalidator0 = %{version}
+
+%description -n libvalidator0-devel
+The validator runtime library development files.
+
+
 %prep
 %setup -c
 
@@ -36,7 +45,11 @@ make install PREFIX=%{_prefix} DESTDIR=%{buildroot}
 %{_bindir}/valzo
 
 %files -n libvalidator0
-%{_libdir}/libvalidator.so*
+%{_libdir}/libvalidator.so.0*
+%{_libdir}/libvalidator.so.0.*
+
+%files -n libvalidator0-devel
+%{_libdir}/libvalidator.so
 
 %doc README
 
