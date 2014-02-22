@@ -41,14 +41,17 @@ make install PREFIX=%{_prefix} DESTDIR=%{buildroot}
 %clean
 
 %files
+%defattr(-, root, root)
 %{_bindir}/valz
 %{_bindir}/valzo
 
 %files -n libvalidator0
+%defattr(-, root, root)
 %{_libdir}/libvalidator.so.0*
 %{_libdir}/libvalidator.so.0.*
 
 %files -n libvalidator0-devel
+%defattr(-, root, root)
 %{_libdir}/libvalidator.so
 
 %doc README
