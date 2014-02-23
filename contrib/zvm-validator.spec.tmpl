@@ -5,6 +5,7 @@ Summary: ZeroVM validator tools
 Group: Development/Tools
 License: Apache-2.0
 Source: %{name}.tar.gz
+URL: https://github.com/zerovm/validator
 BuildRequires: gcc-c++
 
 %description
@@ -41,14 +42,17 @@ make install PREFIX=%{_prefix} DESTDIR=%{buildroot}
 %clean
 
 %files
+%defattr(-, root, root)
 %{_bindir}/valz
 %{_bindir}/valzo
 
 %files -n libvalidator0
+%defattr(-, root, root)
 %{_libdir}/libvalidator.so.0*
 %{_libdir}/libvalidator.so.0.*
 
 %files -n libvalidator0-devel
+%defattr(-, root, root)
 %{_libdir}/libvalidator.so
 
 %doc README
