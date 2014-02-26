@@ -12,14 +12,19 @@ BuildRequires: gcc-c++
 ZeroVM is an open-source lightweight virtualization platform
 based on Google Native Client project.
 
-This package contains a validator for NaCl bitcode.
+This package contains valz and valzo binaries needed if you want to
+debug the validation of NaCl bitcode done by ZeroVM.
 
 %package -n libvalidator0
 Summary: The validator runtime library
 Group: Development/Libraries
 
 %description -n libvalidator0
-The validator runtime library.
+ZeroVM is an open-source lightweight virtualization platform
+based on Google Native Client project.
+
+The package contains the validator runtime library needed if you want
+to validate NaCL bitcode.
 
 %package -n libvalidator0-devel
 Summary:        The validator runtime library development files
@@ -27,8 +32,11 @@ Group:          Development/Libraries/C and C++
 Requires:       libvalidator0 = %{version}
 
 %description -n libvalidator0-devel
-The validator runtime library development files.
+ZeroVM is an open-source lightweight virtualization platform
+based on Google Native Client project.
 
+This package contains the development headers needed if you are
+developing new programs that validate NaCl bitcode.
 
 %prep
 %setup -c
