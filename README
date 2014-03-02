@@ -36,20 +36,10 @@ generated using the following steps.
    it to the parent directory (in this example, $HOME), then gzip it:
 
     $ cd $HOME/validator
-    $ git archive HEAD --output ../libvalidator0_0.9.orig.tar.gz
+    $ tar czf ../zvm-validator_0.9-<some-release>.orig.tar.gz
 
 4. Compile and build the package:
 
-    $ debuild --source-option=--include-binaries
+    $ debuild # specify -S to build a source package
 
-   To skip the prompt for a GPG signature, you can include these options:
-
-    $ debuild -us -uc --source-option=--include-binaries
-
-   This will output the following files in the parent directory ($HOME):
-
-    libvalidator0_0.9-2_amd64.build
-    libvalidator0_0.9-2_amd64.changes
-    libvalidator0_0.9-2_amd64.deb
-    libvalidator0_0.9-2.debian.tar.gz
-    libvalidator0_0.9-2.dsc
+   This will output the package artifacts into the parent directory.
