@@ -21,8 +21,13 @@ if [ ! -z "$missing" ]; then
     exit 1
 fi
 
+if ( ! mkdir -p ./config ); then
+    echo "could not create directory ./config"
+    exit 1
+fi
+
 echo "generating configure script"
-autoreconf --install || exit 1
+autoreconf --install --force --verbose -I config || exit 1
 
 echo "configure script generated succesfully"
 echo
