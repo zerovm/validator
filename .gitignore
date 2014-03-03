@@ -1,8 +1,8 @@
 /out/
 *~
-COPYING
 aclocal.m4
 autom4te.cache
+config
 config.guess
 config.sub
 configure

@@ -1,10 +1,14 @@
 # Required initializer
 AC_PREREQ(2.59)
 AC_INIT(validator, 0.9.0)
-AC_CONFIG_MACRO_DIR([m4])
+
+AC_CONFIG_AUX_DIR(config)
+AC_CONFIG_MACRO_DIR(config)
+
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([native_client/src/trusted/validator/ncfileutil.c])
 AC_CONFIG_HEADER([config.h])
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 # Checks for programs.
 AC_PROG_CC
