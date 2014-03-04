@@ -55,7 +55,7 @@ CPPFLAGS="$CPPFLAGS -std=c99 -D_GNU_SOURCE"
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
 
-AC_SUBST([PLATFORM])
+AC_SUBST(VERSION)
 
 # Checks for library functions.
 AC_CHECK_FUNCS([strcasecmp strspn strstr])
@@ -73,4 +73,6 @@ AC_OUTPUT(Makefile native_client/src/Makefile \
                    native_client/src/trusted/service_runtime/Makefile
                    native_client/src/trusted/validator_x86/Makefile
                    native_client/src/trusted/validator/Makefile
-                   test/Makefile)
+                   test/Makefile
+		   contrib/Makefile
+		   contrib/validator.pc)
