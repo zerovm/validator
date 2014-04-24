@@ -1,6 +1,8 @@
 ZeroVM Validator
 ================
 
+[![Build Status](http://ci.oslab.cc/job/zvm-validator/badge/icon)](http://ci.oslab.cc/job/zvm-validator/)
+
 The ZeroVM Validator for the linux x86-64 platform is derived from the
 Native Client (NaCl) project.
 
