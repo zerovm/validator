@@ -27,6 +27,7 @@ XX_CPPFLAGS = $(AM_CPPFLAGS) \
 
 valz_CPPFLAGS = $(XX_CPPFLAGS)
 valzo_CPPFLAGS = $(XX_CPPFLAGS)
+validator_CPPFLAGS = $(XX_CPPFLAGS)
 
 valz_LDADD = ../native_client/src/trusted/validator/libvalidator.la
 valzo_LDADD = ../native_client/src/trusted/validator/libvalidator.la
