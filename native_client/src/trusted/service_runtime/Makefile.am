@@ -46,6 +46,7 @@ XX_CPPFLAGS = $(AM_CPPFLAGS) \
 	   '-DNACL_OSX=0' \
 	   '-DNACL_WINDOWS=0' \
 	   '-D_BSD_SOURCE=1' \
+           '-D_DEFAULT_SOURCE=1' \
 	   '-D_POSIX_C_SOURCE=199506' \
 	   '-D_XOPEN_SOURCE=600' \
 	   '-D_GNU_SOURCE=1' \
